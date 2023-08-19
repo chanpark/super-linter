@@ -64,7 +64,7 @@ jobs:
           secrets: |
             GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
           tags: |
-            ghcr.io/super-linter/super-linter:${{ matrix.images.prefix }}latest
+            ghcr.io/chanpark/super-linter:${{ matrix.images.prefix }}latest
           target: "${{ matrix.images.target }}"
 
       - name: Update ${{ matrix.images.environment }} Deployment
@@ -76,7 +76,7 @@ jobs:
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
           env: ${{ steps.deployment.outputs.env }}
-          env_url: https://github.com/super-linter/super-linter
+          env_url: https://github.com/chanpark/super-linter
 
       - name: Create Issue on Failure
         uses: actions/github-script@v6
