@@ -383,7 +383,7 @@ RUN ACTIONS_RUNNER_DEBUG=true WRITE_LINTER_VERSIONS_FILE=true IMAGE="${IMAGE}" /
 ######################
 # Set the entrypoint #
 ######################
-ENTRYPOINT ["/action/lib/linter.sh"]
+ENTRYPOINT ["/action/lib/entry.sh"]
 
 ################################################################################
 # Grab small clean image to build standard ###############################

@@ -833,6 +833,16 @@ trap 'cleanup' 0 1 2 3 6 14 15
 ############################### MAIN ###########################################
 ################################################################################
 
+if [ -n "$USER_ID" -a "$USER_ID" != "0" ]; then
+  id
+  if [ "$(id -u)" == "0" ]; then
+    echo "Failed to switch to user id ($USER_ID)"
+    exit 1
+  else
+    echo "Switched to user id ($(id -u))"
+  fi
+fi
+
 ##########
 # Header #
 ##########
