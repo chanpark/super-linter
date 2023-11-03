@@ -86,10 +86,10 @@ jobs:
       - name: Retag and Push Images
         uses: akhilerm/tag-push-action@v2.1.0
         with:
-          src: ghcr.io/super-linter/super-linter:${{ matrix.images.prefix }}latest
+          src: ghcr.io/chanpark/super-linter:${{ matrix.images.prefix }}latest
           dst: |
-            ghcr.io/super-linter/super-linter:${{ matrix.images.prefix }}${{ env.SEMVER_MAJOR_VERSION_WITH_PREFIX }}
-            ghcr.io/super-linter/super-linter:${{ matrix.images.prefix }}${{ env.RELEASE_VERSION }}
+            ghcr.io/chanpark/super-linter:${{ matrix.images.prefix }}${{ env.SEMVER_MAJOR_VERSION_WITH_PREFIX }}
+            ghcr.io/chanpark/super-linter:${{ matrix.images.prefix }}${{ env.RELEASE_VERSION }}
 
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -117,7 +117,7 @@ jobs:
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
           env: ${{ steps.deployment.outputs.env }}
-          env_url: https://github.com/super-linter/super-linter/releases/tag/${{ env.RELEASE_VERSION }}
+          env_url: https://github.com/chanpark/super-linter/releases/tag/${{ env.RELEASE_VERSION }}
 
       - name: Create Issue on Failure
         if: failure()
